@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog Vet Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <nav class="menu-bar">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+    <div class="settings-toolbar">
+      <button id="themeToggle">Toggle Theme</button>
+    </div>
+  </nav>
+
+  <div class="chatbox">
+    <h2>Veterinary Chatbot for Dogs</h2>
+    <form id="chatForm">
+      <input type="text" name="user_input" placeholder="Describe your dog's issue..." required>
+      <button type="submit">Ask</button>
+    </form>
+    <div id="response"></div>
+  </div>
+</body>
+</html>
