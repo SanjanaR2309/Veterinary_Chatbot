@@ -25,7 +25,7 @@ def ask():
              "Focus only on dogs and provide relevant medical insights."
 
     response = ollama.chat(
-        model='llama2',
+        model='ALIENTELLIGENCE/veterinarymedicine',
         messages=[{"role": "user", "content": prompt}]
     )
     
