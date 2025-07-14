@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-import requests
+import ollama
 import re
 
 app = Flask(__name__)
@@ -33,15 +33,10 @@ def ask():
         "Only list conditions relevant to dogs and avoid generic disclaimers."
     )
 
-    def ask_ollama(prompt):
-    response = requests.post(
-        "http://localhost:11434/api/chat",  # or your remote Ollama host
-        json={
-            "model": "ALIENTELLIGENCE/veterinarymedicine",
-            "messages": [{"role": "user", "content": prompt}]
-        }
+    response = ollama.chat(
+        model='ALIENTELLIGENCE/veterinarymedicine',
+        messages=[{"role": "user", "content": prompt}]
     )
-    return response.json()["message"]["content"]
 
     return jsonify({"response": response['message']['content']})
 
